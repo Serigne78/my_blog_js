@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title>Home</title>
+      <link rel="stylesheet" href="/styles/content.css">
+      <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet">
+      <link rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+      <header>
+            <a href="#" class="logo"><i class="ri-home-smile-2-fill"><span>Logo</span></i></a>
+            <ul class="navbar">
+                  <li><a href="/" class="active">Home</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/post">Post</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="main">
+                  <a href="#" class="user"><i class="ri-user-fill"></i>Sign In</a>
+                  <a href="#">Register</a>
+                  <div class="bx bx_menu" id="menu-icon"><i class="ri-menu-line"></i></div>
+            </div>
+            <hr>
+      </header>
+
+      <div class="header-blog">
+            <h1 style="text-decoration:overline;">Welcome To My Blog</h1>
+            
+      </div>
+
+      <div class="blog-post">
+            <img src="/images/téléchargement (1).jpg" alt="galaxie">
+
+      </div>
+
+      <div class="blog-text">
+            <span>18 July 2021 / Web Design</span>
+            <a href="#" class="blog-title">What Has Happened of All of the web</a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, dolor id dictum sodales, mi arcu pretium lacus, a hendrerit dolor augue quis tortor. In commodo arcu et erat imperdiet finibus. In egestas leo vitae libero semper mollis. </p>
+      </div>
+      <% if (locals.bdd) {%>
+      <% for (var i = 0; i<longueur; i++) { %>  
+      <div class="blog-post">
+            <img src="<%= bdd[i]["backr"] %> " alt="galaxie">
+
+      </div>
+      <div class="blog-text">
+            <span><%= bdd[i]["date"] %> / <%= bdd[i]["domaine"]  %></span>
+            <a href="#" class="blog-title"><%= bdd[i]["title"] %></a>
+            <p><%= bdd[i]["message"] %></p>
+      </div>
+      <% } %>
+      <% } %>
+      
+</body>
+
+      <script>
+            let menu = document.querySelector('#menu-icon');
+            let navbar = document.querySelector('.navbar');
+      
+            menu.onclick = () => {
+                  menu.classList.toggle('bx-x');
+                  navbar.classList.toggle('open');
+            };
+
+            document.addEventListener('DOMContentLoaded', function () {
+            // Sélectionnez tous les liens de navigation
+            var navLinks = document.querySelectorAll('.navbar a.nav-link');
+
+            // Ajoutez un écouteur de clic à chaque lien
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    // Empêchez le comportement de lien par défaut
+                    event.preventDefault();
+
+                    // Retirez la classe "active" de tous les liens
+                    navLinks.forEach(function (otherLink) {
+                        otherLink.classList.remove('active');
+                    });
+
+                    // Ajoutez la classe "active" au lien cliqué
+                    link.classList.add('active');
+                });
+            });
+        });
+      
+      </script>
