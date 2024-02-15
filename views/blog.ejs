@@ -32,27 +32,36 @@
             <hr>
       </header>
 
-      <div class="header-blog">
-            <h1 style="text-decoration:overline;">Welcome To My Blog</h1>
-            
-      </div>
+      <div class="content-form">
+            <div class="header-form">
+                  <h1>Add a Blog</h1>
+                  <form action="/submit" method="post">
+                        <ul>
+                              <li>
+                                <label for="name">Date&nbsp;:</label>
+                                <input type="date" id="name" name="user_date" />
+                              </li>
+                              <li>
+                                <label for="mail">Domaine&nbsp;:</label>
+                                <input type="text" id="text" name="user_domaine" />
+                              </li>
 
-      
-      <% if (locals.bdd) {%>
-      <% for (var i = 0; i<longueur; i++) { %>  
-      <div class="blog-post">
-            <img src="<%= bdd[i]["image"] %> " alt="galaxie">
+                              <li>
+                                    <label for="mail">Titre&nbsp;:</label>
+                                    <input type="text" id="text" name="user_title" />
+                                  </li>
+                              <li>
+                                <label for="msg">Message&nbsp;:</label>
+                                <textarea id="msg" name="user_message"></textarea>
+                              </li>
 
-      </div>
-      <div class="blog-text">
-            <span><%= bdd[i]["date_p"] %> / <%= bdd[i]["domaine"]  %></span>
-            <a href="#" class="blog-title"><%= bdd[i]["title"] %></a>
-            <p><%= bdd[i]["messages"] %></p>
-      </div>
-      <% } %>
-      <% } %>
-      
-</body>
+                              <div class="button-send">
+                                    <button type="submit">Envoyer le message</button>
+                                  </div>
+                                  
+                  </form>
+            </div>
+      </div><
 
       <script>
             let menu = document.querySelector('#menu-icon');
@@ -62,26 +71,12 @@
                   menu.classList.toggle('bx-x');
                   navbar.classList.toggle('open');
             };
-
-            document.addEventListener('DOMContentLoaded', function () {
-            // Sélectionnez tous les liens de navigation
-            var navLinks = document.querySelectorAll('.navbar a.nav-link');
-
-            // Ajoutez un écouteur de clic à chaque lien
-            navLinks.forEach(function (link) {
-                link.addEventListener('click', function (event) {
-                    // Empêchez le comportement de lien par défaut
-                    event.preventDefault();
-
-                    // Retirez la classe "active" de tous les liens
-                    navLinks.forEach(function (otherLink) {
-                        otherLink.classList.remove('active');
-                    });
-
-                    // Ajoutez la classe "active" au lien cliqué
-                    link.classList.add('active');
-                });
-            });
-        });
       
       </script>
+
+
+
+
+
+
+</body>
