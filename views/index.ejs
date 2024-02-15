@@ -52,34 +52,20 @@
             </div>
 
 
-            <div class="blog-container">
-                  <div class="blog-box">
-                        <div class="blog-img">
-                              <img src="/images/téléchargement (1).jpg"alt="card1">
-                        </div>
-                  <div class="blog-text">
-                        <span>18 July 2021 / Web Design</span>
-                        <a href="#" class="blog-title">What Has Happened of All of the web</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, dolor id dictum sodales, mi arcu pretium lacus, a hendrerit dolor augue quis tortor. In commodo arcu et erat imperdiet finibus. In egestas leo vitae libero semper mollis. </p>
-                        <a href="/blog">Read More</a>
-                  </div>
-                  
-
-                  </div>
-            </div>
+            
             <% if (locals.bdd) {%>
                   <% for (var i =0; i<longueur; i++) {%>
 
                   <div class="blog-container">
                         <div class="blog-box">
                               <div class="blog-img">
-                                    <img src="<%= bdd[i]["backr"] %>" alt="card1">
+                                    <img src="<%= bdd[i]["image"] %>" alt="card1">
                               </div>
                         <div class="blog-text">
-                              <span><%= bdd[i]["date"] %> / <%= bdd[i]["domaine"] %></span>
+                              <span><%= bdd[i]["date_p"] %> / <%= bdd[i]["domaine"] %></span>
                               <a href="#" class="blog-title"><%= bdd[i]["title"] %></a>
-                              <p><%= bdd[i]["message"] %></p>
-                              <a href="#">Read More</a>
+                              <p><%= bdd[i]["messages"] %></p>
+                              <a href="/blog">Read More</a>
                         </div>
                         
       
